@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-public class Account
+public class Account   // Creation of Account Class
 {
     public int AccountNumber { get; set; }
     public double BankBalance { get; set; }
@@ -11,20 +11,20 @@ public class Account
 
     public Account(int accountNumber, double initialBalance, double interestRate, string accountHolderName)
     {
-        AccountNumber = accountNumber;
+        AccountNumber = accountNumber;  // Declaration of variables in account class
         BankBalance = initialBalance;
         InterestRate = interestRate;
         AccountHolderName = accountHolderName;
         Transactions = new List<string>();
     }
 
-    public void Deposit(double amount)   
+    public void Deposit(double amount)   // Method for depositing Money into the Bank
     {
         BankBalance += amount;
         Transactions.Add($"Deposited: {amount:C}");
     }
 
-    public bool Withdraw(double amount)
+    public bool Withdraw(double amount)   // Method for withdrawing money from the Bank
     {
         if (amount <= BankBalance)
         {
@@ -39,7 +39,7 @@ public class Account
         }
     }
 
-    public void DisplayTransactions()
+    public void DisplayTransactions()  // Method for displaying the transactions done
     {
         Console.WriteLine("Transaction History:");
         foreach (var transaction in Transactions)
@@ -49,9 +49,9 @@ public class Account
     }
 }
 
-public class Bank
+public class Bank  // Creation of Bank Class
 {
-    private List<Account> accounts;
+    private List<Account> accounts; // List for holding all the accounts
 
     public Bank()
     {
@@ -67,7 +67,7 @@ public class Bank
         accounts.Add(account);
     }
 
-    public Account RetrieveAccount(int accountNumber)
+    public Account RetrieveAccount(int accountNumber)  // method for finding the account registered
     {
         return accounts.Find(account => account.AccountNumber == accountNumber);
     }
@@ -97,10 +97,10 @@ public class AtmApplication
             switch (choice)
             {
                 case 1:
-                    CreateAccount();
+                    CreateAccount(); // Calling Acoount Creation method
                     break;
                 case 2:
-                    SelectAccount();
+                    SelectAccount(); // Calling select account method for displaying the account
                     break;
                 case 3:
                     Console.WriteLine("Exiting application. Goodbye!");
@@ -112,7 +112,7 @@ public class AtmApplication
         }
     }
 
-    private void DisplayMainMenu()
+    private void DisplayMainMenu()  // Method for displaying Main Menu 
     {
         Console.WriteLine("\nATM Main Menu:");
         Console.WriteLine("1. Create Account");
@@ -121,7 +121,7 @@ public class AtmApplication
         Console.Write("Enter your choice: ");
     }
 
-    private void CreateAccount()
+    private void CreateAccount()  // Method for Creating the account
     {
         Console.Write("Enter Account Number: ");
         int accountNumber = int.Parse(Console.ReadLine());
@@ -212,9 +212,9 @@ public class AtmApplication
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main(string[] args)  // starting of main function
     {
-        AtmApplication app = new AtmApplication();
-        app.Run();
+        AtmApplication app = new AtmApplication(); //creation of object for accessing the methods 
+        app.Run(); //calling of run method
     }
 }
