@@ -5,15 +5,15 @@ public class Account   // Creation of Account Class
 {
     public int AccountNumber { get; set; }
     public double BankBalance { get; set; }
-    public double InterestRate { get; set; }
+      public double InterestRate { get; set; }
     public string AccountHolderName { get; set; }
     public List<string> Transactions { get; set; }
 
     public Account(int accountNumber, double initialBalance, double interestRate, string accountHolderName)
     {
         AccountNumber = accountNumber;  // Declaration of variables in account class
-        BankBalance = initialBalance;
-        InterestRate = interestRate;
+         BankBalance = initialBalance;
+         InterestRate = interestRate;
         AccountHolderName = accountHolderName;
         Transactions = new List<string>();
     }
@@ -116,7 +116,7 @@ public class AtmApplication
     {
         Console.WriteLine("\nATM Main Menu:");
         Console.WriteLine("1. Create Account");
-        Console.WriteLine("2. Select Account");
+          Console.WriteLine("2. Select Account");
         Console.WriteLine("3. Exit");
         Console.Write("Enter your choice: ");
     }
@@ -125,7 +125,7 @@ public class AtmApplication
     {
         Console.Write("Enter Account Number: ");
         int accountNumber = int.Parse(Console.ReadLine());
-        Console.Write("Enter Initial Balance: ");
+          Console.Write("Enter Initial Balance: ");
         double initialBalance = double.Parse(Console.ReadLine());
         Console.Write("Enter Interest Rate: ");
         double interestRate = double.Parse(Console.ReadLine());
@@ -160,14 +160,14 @@ public class AtmApplication
         while (true)
         {
             Console.WriteLine("\nAccount Menu:");
-            Console.WriteLine("1. Check Balance");
+              Console.WriteLine("1. Check Balance");
             Console.WriteLine("2. Deposit");
             Console.WriteLine("3. Withdraw");
-            Console.WriteLine("4. Display Transactions");
+               Console.WriteLine("4. Display Transactions");
             Console.WriteLine("5. Exit Account");
             Console.Write("Enter your choice: ");
             int choice;
-            if (!int.TryParse(Console.ReadLine(), out choice))
+              if (!int.TryParse(Console.ReadLine(), out choice))
             {
                 Console.WriteLine("Invalid choice. Please enter a number.");
                 continue;
@@ -181,7 +181,7 @@ public class AtmApplication
                 case 2:
                     Console.Write("Enter amount to deposit: ");
                     double depositAmount = double.Parse(Console.ReadLine());
-                    account.Deposit(depositAmount);
+                      account.Deposit(depositAmount);
                     Console.WriteLine($"Deposited: {depositAmount:C}");
                     break;
                 case 3:
@@ -194,16 +194,16 @@ public class AtmApplication
                     else
                     {
                         Console.WriteLine("Insufficient funds for withdrawal.");
-                    }
+                       }
                     break;
                 case 4:
-                    account.DisplayTransactions();
+                      account.DisplayTransactions();
                     break;
-                case 5:
-                    Console.WriteLine("Exiting account menu.");
+                   case 5:
+                      Console.WriteLine("Exiting account menu.");
                     return;
                 default:
-                    Console.WriteLine("Invalid choice. Please try again.");
+                      Console.WriteLine("Invalid choice. Please try again.");
                     break;
             }
         }
